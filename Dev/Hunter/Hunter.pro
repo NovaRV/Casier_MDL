@@ -1,5 +1,5 @@
 QT       += core gui sql network
-
+QT       += quick
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -35,3 +35,8 @@ else: unix:!android: target.path = /home/pi/
 !isEmpty(target.path): INSTALLS += target
 
 LIBS += -lpthread -lwiringPi -lrt
+
+RESOURCES += \
+    qml.qrc
+
+DISTFILES +=

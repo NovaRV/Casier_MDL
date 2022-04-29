@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>content/Home.qml</file>
+        <file>content/Emprunt.qml</file>
+    </qresource>
+</RCC>

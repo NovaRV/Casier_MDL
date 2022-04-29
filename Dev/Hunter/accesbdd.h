@@ -6,21 +6,22 @@
 #include <QSqlError>
 #include <QDebug>
 
-class AccesBdd
+class AccesBdd: public QObject
 {
+    Q_OBJECT
 
 public:
-    AccesBdd();
-    AccesBdd(QString host, QString bd, QString login, QString mdp);
+    explicit AccesBdd(QObject *parent = nullptr);
+    ~AccesBdd();
 
     bool adherentExiste(QString idBadge);
     bool definirAdherent(QString idBadge,QString numBadge);
     QString Nom;
     QString Prenom;
-
+    QString idBadgeReq;
+    QString numBadgeReq;
 
     QString getNom() const;
-
     QString getPrenom() const;
 
 private:

@@ -1,7 +1,7 @@
 #include "accesbdd.h"
 #include <QSettings>
 
-AccesBdd::AccesBdd()
+AccesBdd::AccesBdd(QObject *parent) : QObject(parent)
 {
     QSettings param("confbdd.ini",QSettings::IniFormat);
     QString hote,  bd,  login,  mdp;
@@ -25,9 +25,9 @@ AccesBdd::AccesBdd()
     }
 }
 
-AccesBdd::AccesBdd(QString host, QString bd, QString login, QString mdp)
+AccesBdd::~AccesBdd()
 {
-
+ delete this;
 }
 
 bool AccesBdd::adherentExiste(QString idBadge)
@@ -48,6 +48,7 @@ bool AccesBdd::adherentExiste(QString idBadge)
             while(requete.next()){
                 Prenom = requete.value("prenom").toString();
                 Nom = requete.value("nom").toString();
+
             }
         }
     }
